@@ -188,9 +188,9 @@ module Typhoeus
     # Sets default header and verbose when turned on.
     def set_defaults
       if @options[:headers]
-        @options[:headers] = {'User-Agent' => Typhoeus::USER_AGENT}.merge(options[:headers])
+        @options[:headers] = {'User-Agent' => Typhoeus::USER_AGENTS.sample}.merge(options[:headers])
       else
-        @options[:headers] = {'User-Agent' => Typhoeus::USER_AGENT}
+        @options[:headers] = {'User-Agent' => Typhoeus::USER_AGENTS.sample}
       end
       @options[:verbose] = Typhoeus::Config.verbose if @options[:verbose].nil? && !Typhoeus::Config.verbose.nil?
     end
